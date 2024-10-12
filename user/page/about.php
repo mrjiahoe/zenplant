@@ -6,6 +6,16 @@
     <title>About</title>
 </head>
 <body>
+<?php 
+require dirname(__DIR__).'/components/header.php';
+
+    ?>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <h1>ABout us</h1>
 </body>
 </html>

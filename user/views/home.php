@@ -1,4 +1,7 @@
-
+<?php 
+require_once './db.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,12 +22,11 @@
     </style>
 
 
-
 </head>
 
 <body>
 
-<br>
+
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -37,6 +39,7 @@ error_reporting(E_ALL);
     <section >
         <div class="main">
             <div class="main__left">
+                    <?php echo $_SESSION["username"] ?>
                 <h1>Plants make life better</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, exercitationem?</p>
                 <button>Buy Plant</button>
@@ -47,6 +50,10 @@ error_reporting(E_ALL);
             </div>
         </div>
     </section>
+
+    <?php 
+    require dirname(__DIR__).'/components/footer.php';
+    ?>
 
     <!--=============== MAIN JS ===============-->
     <script src="./user/assets/js/main.js"></script>

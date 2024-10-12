@@ -1,6 +1,10 @@
+<?php 
+require_once './db.php';
+// session_start();
+?>
 <style>
-        <?php include './user/assets/css/styles.css'?>
-    </style>
+    <?php include './user/assets/css/styles.css'?>
+</style>
 
 <body>
     <header class="header" id="header">
@@ -14,11 +18,11 @@
                 <ul class="nav__list">
                     <?php //foreach ($nav_menu as $name => $path): ?>
                         <li class="nav__item">
-                        <a href="" class="nav__link active">Home</a>
+                        <a href="home" class="nav__link active">Home</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="/zenplant/about-us" class="nav__link">About Us</a>
+                        <a href="about" class="nav__link">About Us</a>
                     </li>
 
                     <li class="nav__item">
@@ -32,13 +36,6 @@
                         <a href="contact" class="nav__link">Contact</a>
                     </li>
 
-                        <!-- <li class="nav__item"> -->
-                            <!-- <a href="<?php //echo BASE_URL . $path; ?>" -->
-                                <!-- <?php //echo ($_SERVER['PHP_SELF'] == BASE_URL . $path) ?>> -->
-                                <!-- <?php //echo htmlspecialchars($name); ?> -->
-                        <!-- </li> -->
-
-                    <?php //endforeach; ?>
                 </ul>
 
                 <!-- Close button -->
@@ -78,7 +75,7 @@
             <h2 class="login__title">Log In</h2>
 
             <div class="login__group">
-                <div>
+                <!-- <div>
                     <label for="email" class="login__label">Email</label>
                     <input type="email" placeholder="Write your email" id="email" class="login__input">
                 </div>
@@ -86,19 +83,24 @@
                 <div>
                     <label for="password" class="login__label">Password</label>
                     <input type="password" placeholder="Enter your password" id="password" class="login__input">
-                </div>
+                </div> -->
+
             </div>
 
             <div>
                 <p class="login__signup">
-                    You do not have an account? <a href="#">Sign up</a>
+                    You do not have an account? <a href="register">Sign up</a>
                 </p>
 
                 <a href="#" class="login__forgot">
                     You forgot your password
                 </a>
 
-                <button type="submit" class="login__button">Log In</button>
+                    <a href="login">
+                        <h2>Login</h2>
+                    </a>
+
+                <a href="logout"><h2>logout</h2></a>
             </div>
         </form>
 

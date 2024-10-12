@@ -1,6 +1,7 @@
 <?php
 
-    require_once('config.php');
+    //Location of your site which contains route.php
+    $site_url = 'http://localhost/zenplant';
 
     //          HTTP protocol + Server address(localhost or example.com) + requested uri (/route or /route/home)
     $current_url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -19,4 +20,3 @@
     //Converting the request to lowercase
     $request = strtolower($request);
 
-?>
