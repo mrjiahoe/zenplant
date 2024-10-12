@@ -56,7 +56,8 @@ if (isset($_SESSION["isUser"])) {
             session_start();
             $_SESSION["isAdmin"] = "yes";
             $_SESSION["username"] = $userName;
-            header("Location: adminFront");
+            $isAdminRequest = true;
+            header("Location: admin");
         } else {
             echo "<h1>password or username is wrong</h1>";
         }

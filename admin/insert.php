@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // insert.php - Contains the form and logic to insert a new book
 require 'db.php';
 
@@ -12,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $plantImage = mysqli_real_escape_string($conn, $_POST['plantImage']);
 
     // Insert data into Books table
-    $sql = "INSERT INTO plant (name, category, price, rating, description, pros, image) VALUES ('$plantName', '$plantCategory', '$plantPrice', '$plantRating', '$plantDescription', '$plantPros', '$plantImage')";
+    $sql = "INSERT INTO plants (name, category, price, rating, description, pros, imageUrl) VALUES ('$plantName', '$plantCategory', '$plantPrice', '$plantRating', '$plantDescription', '$plantPros', '$plantImage')";
     
     if (mysqli_query($conn, $sql)) {
         // After successful insert, redirect to the index page

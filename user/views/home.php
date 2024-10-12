@@ -1,4 +1,8 @@
 <?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once './db.php';
 session_start();
 ?>
@@ -28,9 +32,7 @@ session_start();
 
 
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
     require dirname(__DIR__).'/components/header.php';
     // echo dirname(__DIR__);
     ?>
@@ -39,7 +41,14 @@ error_reporting(E_ALL);
     <section >
         <div class="main">
             <div class="main__left">
-                    <?php echo $_SESSION["username"] ?>
+                    <?php 
+                    if (!empty($_SESSION["username"])) {
+                        $username = $_SESSION["username"];
+                        echo "<p>Welcome, $username!</p>";
+                    } else {
+                        echo "<p>Log in to continue</p>";
+                    };
+                    ?>
                 <h1>Plants make life better</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, exercitationem?</p>
                 <button>Buy Plant</button>

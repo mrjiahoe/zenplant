@@ -28,18 +28,18 @@ $result = mysqli_query($conn, $sql);
         // Output data of each row
         while($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td>" . $row["id"] . "</td>";
+            echo "<td>" . $row["plantId"] . "</td>";
             echo "<td>" . $row["name"] . "</td>";
             echo "<td>" . $row["category"] . "</td>";
             echo "<td>" . $row["price"] . "</td>";
 			echo "<td>" . $row["rating"] . "</td>";
             echo "<td>" . $row["description"] . "</td>";
             echo "<td>" . $row["pros"] . "</td>";
-            echo "<td>" . $row["image"] . "</td>";
+            echo "<td>" . $row["imageUrl"] . "</td>";
             echo "<td>";
             echo "<a href='/zenplant/admin/test.php'>Test</a> | ";
-            echo "<a href='/zenplant/admin/edit.php?id=" . $row["id"] . "'>Edit</a> | ";
-            echo "<a href='/zenplant/admin/delete.php?id=" . $row["id"] . "' onclick='return confirm(\"Are you sure you want to delete this record?\");'>Delete</a>";
+            echo "<a href='/zenplant/admin/edit.php?id=" . $row["plantId"] . "'>Edit</a> | ";
+            echo "<a href='/zenplant/admin/delete.php?id=" . $row["plantId"] . "' onclick='return confirm(\"Are you sure you want to delete this record?\");'>Delete</a>";
             echo "</td>";
             echo "</tr>";
         }

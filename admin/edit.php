@@ -7,7 +7,7 @@ require 'db.php';
 
 if (isset($_GET['id'])) {
     $plantId = $_GET['id'];
-    $sql = "SELECT * FROM plant WHERE id=$plantId";
+    $sql = "SELECT * FROM plants WHERE plantId=$plantId";
     $result = mysqli_query($conn, $sql);
     $plant = mysqli_fetch_assoc($result);
 }
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $plantImage = mysqli_real_escape_string($conn, $_POST['plantImage']);
 
     // Update the book record
-    $sql = "UPDATE plant SET name='$plantName', category='$plantCategory', price='$plantPrice', rating='$plantRating', description='$plantDescription', pros='$plantPros', image='$plantImage' WHERE id=$plantId";
+    $sql = "UPDATE plants SET name='$plantName', category='$plantCategory', price='$plantPrice', rating='$plantRating', description='$plantDescription', pros='$plantPros', imageUrl='$plantImage' WHERE plantId=$plantId";
     
     if (mysqli_query($conn, $sql)) {
         // After successful update, redirect to the index page
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!-- Form to edit a book record -->
 <h3>Edit Plant</h3>
 <form action="edit.php" method="POST">
-    <input type="hidden" name="plantId" value="<?php echo $plant['id']; ?>">
+    <input type="hidden" name="plantId" value="<?php echo $plant['plantId']; ?>">
     <label for="plantName">Name:</label><br>
     <input type="text" id="plantName" name="plantName" value="<?php echo $plant['name']; ?>" required><br><br>
 
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" id="plantPros" name="plantPros" value="<?php echo $plant['pros']; ?>" required><br><br>
 
     <label for="plantImage">Image:</label><br>
-    <input type="text" id="plantImage" name="plantImage" value="<?php echo $plant['image']; ?>" required><br><br>
+    <input type="text" id="plantImage" name="plantImage" value="<?php echo $plant['imageUrl']; ?>" required><br><br>
 	
     <input type="submit" value="Update Plant">
 </form>
