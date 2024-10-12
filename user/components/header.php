@@ -1,9 +1,9 @@
 <?php 
-require_once './db.php';
+// require_once './db.php';
 // session_start();
 ?>
 <style>
-    <?php include './user/assets/css/styles.css'?>
+    <?php include '/user/assets/css/styles.css'?>
 </style>
 
 <body>
@@ -26,7 +26,7 @@ require_once './db.php';
                     </li>
 
                     <li class="nav__item">
-                        <a href="testss" class="nav__link">Services</a>
+                        <a href="products" class="nav__link">All Products</a>
                     </li>
 
                     <li class="nav__item">

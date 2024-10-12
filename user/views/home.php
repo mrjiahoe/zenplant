@@ -60,6 +60,14 @@ session_start();
         </div>
     </section>
 
+    <section >
+        <div class="main">
+            <h1>monstera Deliciosa</h1>
+            <a href="user/views/MonsteraDeliciosa.php"><button class="main__left">Buy now</button></a>
+            <img src="./user/assets/img/plant/MonsteraDeliciosa.jpg" alt="MonsteraDeliciosa">
+        </div>
+    </section>
+
     <?php 
     require dirname(__DIR__).'/components/footer.php';
     ?>

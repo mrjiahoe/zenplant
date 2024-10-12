@@ -130,6 +130,388 @@ img {
   cursor: pointer;
 }
 
+/*=============== CLASS FOR MULTIPLE VIEW ===============*/
+.shop {
+  margin-top: 2.5rem;
+  padding: 15px 9%;
+  padding-bottom: 100px;
+  font-size: 1rem;
+}
+
+.shop h1{
+	text-align: center;
+	padding: 10px;
+	font-size: 2.4rem;
+	color: #38684A;
+}
+
+.shop-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 15px;
+}
+
+.product{
+	box-shadow: 0 5px 10px;
+	border-radius: 5px;
+	background: white;
+	text-align: left;
+	padding: 15px 15px;
+}
+
+.product:hover{
+	box-shadow: 0 10px 15px grey;
+	transform: scale(1.05);
+}
+
+.filter{
+  float: left;
+  padding-right: 1.5rem;
+  padding-bottom: 100px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.filter-box{
+	box-shadow: 0 5px 10px;
+	border-radius: 5px;
+	background: white;
+	text-align: left;
+	padding: 15px 15px;
+}
+
+.filter-box h3, input{
+	color: #38684A;
+}
+
+.filter-search{
+	box-shadow: 0 5px 10px;
+	border-radius: 5px;
+	background: #38684A;
+	color: white;
+	text-align: center;
+	padding: 15px 15px;
+	font-size: 1rem;
+}
+
+.filter-search:hover{
+	transform: scale(1.05);
+	box-shadow: 5px 5px 7px 2px grey;
+}
+
+.slider-container{
+	position: relative;
+	display: flex;
+	background: white;
+	align-items: center;
+	justify-content: center;
+}
+
+.value{
+	font-size: 20px;
+	padding: 15px;
+}
+
+.category-button{
+	display: flex;
+	align-items: left;
+	justify-content: center;
+	gap: 5px;
+}
+
+.category-button button{
+	padding: 5px;
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+
+.active{
+	background-Color: #38684A;
+	color: white;
+}
+
+.product.hide{
+	display: none;
+}
+
+/*=============== CLASS FOR PRODUCT DETAIL ===============*/
+
+.product-detail{
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 3rem;
+  font-size: 1rem;
+}
+
+.product-detail-box{
+	display: flex;
+	box-shadow: 5px 5px 10px 3px grey;
+	border-radius: 5px;
+	background: white;
+	align-items: center;
+	width: 120vh;
+	height: auto;
+	padding: 20px;
+}
+
+.product-content{
+	font-size: 1.2rem;
+	width: 50%;
+	padding: 30px;
+}
+
+.product-content span{
+	font-size: 1.5rem;
+	padding: 15px;
+}
+
+.product-detail-box button{
+	font-size: 1rem;
+	padding: 5px 15px;
+	background-color: #38684A;
+	color: white;
+}
+
+.product-detail-box button:hover{
+	transform: scale(1.05);
+	box-shadow: 5px 5px 7px 2px grey;
+}
+
+.left{
+	width: 50%;
+	padding: 30px;
+}
+
+.main-image{
+	width: auto;
+	height: auto;
+	box-shadow: 5px 5px 10px 3px #38684A;
+}
+
+.product-quantity{
+	font-size: 1.5rem;
+}
+
+.product-quantity span{
+	cursor: pointer;
+	width: 100%;
+	padding: 0 10px;
+}
+
+.num{
+	pointer-events: none;
+}
+
+.minus:hover,.plus:hover{
+	background-Color: #38684A;
+	color: white;
+	box-shadow: none;
+	transform: scale(1.3);
+}
+
+/*.product-quantity label{
+	padding: 0px 20px;
+}
+
+.product-quantity button{
+	padding: 0px 5px;
+	border-radius: 50%;
+	background-Color: white;
+	color: #38684A;
+	transform: scale(1.7);
+}
+
+*/
+
+/*=============== CLASS FOR REVIEW ===============*/
+.review-heading, .similar-product-heading, .comment{
+	text-align: center;
+	letter-spacing: 1px;
+	margin: 0px 15px;
+	font-size: 2rem;
+	color: #38684A;
+}
+
+.review-container{
+	display: flex;
+	justify-content: center;
+	align-items: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.review-box{
+	width: 400px;
+	box-shadow: 2px 2px 30px grey;
+	background-Color: white;
+	padding: 20px;
+	margin: 15px;
+}
+
+.review-box:hover{
+	transform: translateY(-10px);
+	transition: all ease 0.3s;
+}
+
+.profile-img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 10px;
+}
+
+.profile-img img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.profile{
+	display: flex;
+	align-items: center;
+}
+
+.user-name{
+	display: flex;
+	flex-direction: column;
+}
+
+.review-top{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.review-comment h4{
+	font-size: 1.2rem;
+}
+
+.review-comment p{
+	font-size: 1rem;
+}
+
+/*.option img{
+	width: 75px;
+	height: 75px;
+	padding: 10px;
+}*/
+
+/*=============== CLASS FOR SIMILAR PRODUCT ===============*/
+.similar-product{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.similar-product-content{
+	width: 20%;
+	margin: 15px;
+	box-sizing: border-box;
+	float: left;
+	text-align: center;
+	border-radius: 20px;
+	padding-top: 10px;
+	box-shadow: 0 14px 28px grey;
+	transition: 0.4s;
+	background: white;
+}
+
+.similar-product-content:hover{
+	box-shadow: 0 3px 6px grey;
+	transform: translateY(-8px);
+}
+
+.similar-product-content img{
+	padding: 15px;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+}
+
+/*.similar-product-content p{
+	text-align: center;
+	color: #38684A;
+	padding-top: 0 8px;
+}*/
+
+.similar-product-content h3{
+	color: #38684A;
+}
+
+.similar-product-content h6{
+	font-size: 26px;
+	text-align: center;
+	color: #38684A;
+	margin: 0
+}
+
+.comment-container{
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.comment-box{
+	display: flex;
+	box-shadow: 0 5px 10px;
+	border-radius: 5px;
+	background: white;
+	text-align: left;
+	align-items: center;
+	justify-content: center;
+	padding: 15px 15px;
+	width: 75%;
+}
+
+.comment-box textarea{
+	margin-top: 0.5rem;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 10rem;
+	padding: 0.5rem;
+}
+
+.comment-box label{
+	font-size: 2rem;
+}
+
+.comment-box input{
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+	padding: 0.5rem;
+	width: 100%;
+}
+
+.button-group button{
+	padding: 5px 15px;
+	border-radius: 5px;
+	background-Color: #38684A;
+	color: white;
+}
+
+/*.comment div{
+	text-align: center;
+	margin: 0px 15px;
+	font-size: 1.5rem;
+	color: #38684A;
+}
+*/
+
 /*=============== HEADER & NAV ===============*/
 .header {
   position: sticky;
@@ -187,10 +569,10 @@ a.nav__logo img {
 }
 
 .nav__menu .active {
-    color: white;
-    background: var(--first-color);
-    padding: 40px 20px 35px 20px;
-    border-radius: 0 0 30px 30px;
+  color: white;
+  background: var(--first-color);
+  padding: 40px 20px 35px 20px;
+  border-radius: 0 0 30px 30px;
 }
 
 /* Navigation for mobile devices */
@@ -204,7 +586,22 @@ a.nav__logo img {
     width: 100%;
     padding-block: 4.5rem 4rem;
     transition: top .4s;
+	display: inline;
   }
+  
+  /*============ MULTIPLE VIEW CLASS ============*/
+
+.shop-grid{
+	grid-template-columns: repeat(2, 1fr);
+}
+	
+.filter{
+  width: 40%;
+}
+
+.slider-container{
+	transform: scale(0.6);
+}
 }
 
 .nav__list {
@@ -359,7 +756,7 @@ a.nav__logo img {
 
 /*=============== main ===============*/
 section {
-    background: linear-gradient(90deg, transparent 70%, rgb(200, 200, 200) 30%);
+    background: linear-gradient(90deg, transparent 75%, gray 25%);
 }
 
 div.main {
@@ -377,14 +774,18 @@ div.main {
 .main__left h1 {
     font-size: 6em;
     color: var(--first-color);
+	padding-left: 20px;
 }
 
 .main__left p {
     font-size:1.5em;
     border: 5px;
+	padding-left: 20px;
+	padding-bottom: 5px;
 }
 
 .main__left button {
+	margin-left: 20px;
     padding: 8px 10px;
     border: 2px solid var(--first-color);
     border-radius: 5px;
@@ -392,7 +793,7 @@ div.main {
     background: linear-gradient(to right, var(--first-color) 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: right bottom;
-    transition: all 0.3s ease-out;
+    transition: all 0.5s ease-out;
 }
 
 .main__left button:hover {
@@ -472,6 +873,16 @@ input[type=text], select, textarea {
     max-width: 400px;
     margin-inline: auto;
   }
+  
+  /*============ MULTIPLE VIEW GRID ============*/
+
+.shop-grid{
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.filter{
+  width: 30%;
+}
 }
 
 /* For large devices */
@@ -495,11 +906,45 @@ input[type=text], select, textarea {
   .login__form {
     padding: 3rem 2rem 3.5rem;
   }
+  
+  /*============ MULTIPLE VIEW GRID ============*/
+  
+.shop{
+	margin-top: 5rem;
+}
+
+.shop-grid{
+	grid-template-columns: repeat(4, 1fr);
+}
+	
+.filter{
+  width: 25%;
+}
+
+.slider input{
+	position: absolute;
+	scale: 0.9;
+	margin-left: -0.5rem;
+	margin-top: 5px;
+	display: flex;
+}
+
+.slider div{
+	padding-left: 8rem;
+	font-size: 1.2rem;
+}
+  
 }
 
 @media screen and (min-width: 1150px) {
   .container {
     margin-inline: auto;
   }
+  
+  /*============ MULTIPLE VIEW GRID ============*/
+
+.shop-grid{
+  grid-template-columns: repeat(5, 1fr);
+}
 }
 

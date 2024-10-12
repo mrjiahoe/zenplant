@@ -48,6 +48,9 @@
             case 'contact':
                 require 'user/views/contact.php';
                 break;
+            case 'products':
+                require 'user/views/allProducts.php';
+                break;
             case 'headers':
                 require 'user/components/header.php';
                 break;

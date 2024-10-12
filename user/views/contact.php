@@ -19,10 +19,7 @@
 </head>
 
 <body>
-    <?php 
-require dirname(__DIR__).'/components/header.php';
-
-    ?>
+    <?php require dirname(__DIR__).'/components/header.php'; ?>
     
 
 
