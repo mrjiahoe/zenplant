@@ -4,14 +4,23 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require 'db.php';
+
 	
-	if (isset($_GET['id'])) {
+$result = null;
+	if (isset($_REQUEST['id'])) {
 		$plantId = $_GET['id']; // Ensure it's an integer
 		$sql = "SELECT * FROM plant WHERE id = $plantId"; // Fetch product by ID
 		$result = mysqli_query($conn, $sql);
+
+		// Check if the query was successful
+		if ($result) {
+			$title = mysqli_fetch_assoc($result);
+		} else {
+			// Handle error here, e.g., display an error message
+			echo "Error fetching plant data: " . mysqli_error($conn);
+		}
 	}
 
-	$title = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +35,9 @@ require 'db.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
 
     <!--=============== CSS ==============-->
-    <link rel="stylesheet" href="../assets/css/styles.css" />
+	<style>
+        <?php include './user/assets/css/styles.css'?>
+    </style>
 </head>
 
 <body>

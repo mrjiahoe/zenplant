@@ -7,3 +7,7 @@ RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
  
 RewriteRule ^.*$ ./index.php [L]
+
+RewriteRule ^detail$ detail.php [L]
+RewriteRule ^detail/([^/]+)$ detail.php?id=$1 [L]
+RewriteRule ^detail/([^/]+)/([^/]+)/id/([^/]+)$ detail.php?name=$1&id=$3 [L]

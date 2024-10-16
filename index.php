@@ -66,6 +66,16 @@
             case 'test':
                 require 'user/page/test.php';
                 break;
+            case 'detail':
+                if (isset($_GET['id'])) {
+                    $detailId = $_GET['id'];
+                    // Use the $detailId variable in your detail.php logic
+                    require 'user/views/detail.php';
+                  } else {
+                    // Handle the case when no id is provided
+                    require 'user/views/home.php'; // or display an error message
+                  }
+                break;
             case preg_match('/^test\?(id=\d+)?$/', $request):
                     require 'user/page/test.php';
                     // Access the id parameter using $_GET['id']
