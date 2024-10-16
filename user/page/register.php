@@ -75,7 +75,7 @@ body {
 
         // Process form submission
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Retrieve form data
+            // Retrieve register form data
             $username = $_POST['username'];
             $password = $_POST['password'];
             $email = $_POST['email'];
@@ -102,7 +102,7 @@ body {
 
                     if ($stmt->affected_rows > 0) {
                         echo '<p class="success">You have successfully registered! You can now login.</p>';
-                        session_start();
+                        session_regenerate_id();
                         $_SESSION["isUser"] = "yes" ;
                         $_SESSION["username"] = $username;
                         // Set a JavaScript timeout to redirect after 1.5 seconds
