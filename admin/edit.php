@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (mysqli_query($conn, $sql)) {
         // After successful update, redirect to the index page
-        header("Location: index.php");
+        header("Location: productlist");
         exit();
     } else {
         echo "Error updating record: " . mysqli_error($conn);
@@ -35,30 +35,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!-- Form to edit a book record -->
-<h3>Edit Plant</h3>
-<form action="edit.php" method="POST">
-    <input type="hidden" name="plantId" value="<?php echo $plant['plantId']; ?>">
-    <label for="plantName">Name:</label><br>
-    <input type="text" id="plantName" name="plantName" value="<?php echo $plant['name']; ?>" required><br><br>
+<body>
 
-    <label for="plantCategory">Category:</label><br>
-    <input type="text" id="plantCategory" name="plantCategory" value="<?php echo $plant['category']; ?>" required><br><br>
+    <?php require "sidebar.php"; ?>
 
-    <label for="plantPrice">Price:</label><br>
+
+<section class="home">
+    <!-- Form to edit a book record -->
+    <h3>Edit Plant</h3>
+    <form action="edit.php" method="POST">
+        <input type="hidden" name="plantId" value="<?php echo $plant['plantId']; ?>">
+        <label for="plantName">Name:</label><br>
+        <input type="text" id="plantName" name="plantName" value="<?php echo $plant['name']; ?>" required><br><br>
+        
+        <label for="plantCategory">Category:</label><br>
+        <input type="text" id="plantCategory" name="plantCategory" value="<?php echo $plant['category']; ?>" required><br><br>
+        
+        <label for="plantPrice">Price:</label><br>
     <input type="text" id="plantPrice" name="plantPrice" value="<?php echo $plant['price']; ?>" required><br><br>
 	
 	<label for="plantRating">Rating:</label><br>
     <input type="text" id="plantRating" name="plantRating" value="<?php echo $plant['rating']; ?>" required><br><br>
-
+    
     <label for="plantDescription">Description:</label><br>
     <input type="text" id="plantDescription" name="plantDescription" value="<?php echo $plant['description']; ?>" required><br><br>
-
+    
 	<label for="plantPros">Pros:</label><br>
     <input type="text" id="plantPros" name="plantPros" value="<?php echo $plant['pros']; ?>" required><br><br>
-
+    
     <label for="plantImage">Image:</label><br>
     <input type="text" id="plantImage" name="plantImage" value="<?php echo $plant['imageUrl']; ?>" required><br><br>
 	
     <input type="submit" value="Update Plant">
 </form>
+
+</section></body>

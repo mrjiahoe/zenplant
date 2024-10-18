@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
     
     if (mysqli_query($conn, $sql)) {
         // After successful deletion, redirect to the index page
-        header("Location: index.php");
+        header("Location: productlist");
         exit();
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
