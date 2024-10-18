@@ -1,33 +1,38 @@
 <?php
 
-// Location of your site which contains route.php
+// Base URL of your site
 $site_url = 'http://localhost/zenplant';
 
-// HTTP protocol + Server address(localhost or example.com) + requested uri (/route or /route/home)
+// Get the full current URL
 $current_url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-// Current URL = http://localhost/route/something
-// Site URL - http://localhost/route
-
-// Requested page = Current URL - Site URL
-// Requested page = something
+// Extract the requested page
 $request = str_replace($site_url, '', $current_url);
-
-// Replacing extra back slash at the end
-$request = str_replace('/', '', $request);
-
-// Converting the request to lowercase
-$request = strtolower($request);
+$request = trim($request, '/');  // Remove leading and trailing slashes
+$request = strtolower($request); // Convert to lowercase
 
 // Check if the request is for the admin area
 $isAdminRequest = strpos($request, 'admin') === 0;
 
 if ($isAdminRequest) {
+    // Admin section
+    handleAdminRoutes($request);
+} else {
+    // User section
+    handleUserRoutes($request);
+}
+
+/**
+ * Handle routing for admin requests
+ */
+function handleAdminRoutes($request) {
+    // Admin base URL
     $site_url = 'http://localhost/zenplant/admin';
     $current_url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     $request = str_replace($site_url, '', $current_url);
-    $request = str_replace('/', '', $request);
+    $request = trim($request, '/');
     $request = strtolower($request);
+
     switch ($request) {
         case '':
         case 'home':
@@ -42,7 +47,7 @@ if ($isAdminRequest) {
         case 'userlist':
             require 'admin/userlist.php';
             break;
-        case 'newUser':
+        case 'newuser': // Changed case to lowercase for consistency
             require 'admin/insertUser.php';
             break;
         case 'productlist':
@@ -51,10 +56,30 @@ if ($isAdminRequest) {
         default:
             require 'admin/admin404.php';
     }
-} else {
+}
+
+/**
+ * Handle routing for user requests, including dynamic IDs for 'test' and 'detail' routes
+ */
+function handleUserRoutes($request) {
+    // Dynamic route for 'test' with ID, like 'test/1'
+    if (preg_match('/^test\/([0-9]+)$/', $request, $matches)) {
+        $id = $matches[1]; // Extract ID
+        require 'user/page/test.php';
+        exit;
+    }
+
+    // Dynamic route for 'detail' with ID, like 'detail/1'
+    if (preg_match('/^detail\/([0-9]+)$/', $request, $matches)) {
+        $id = $matches[1]; // Extract ID
+        require 'user/views/detail.php';
+        exit;
+    }
+
+    // Static routes
     switch ($request) {
-        case 'home':
         case '':
+        case 'home':
             require 'user/views/home.php';
             break;
         case 'about':
@@ -82,7 +107,7 @@ if ($isAdminRequest) {
             require 'user/page/test.php';
             break;
         case 'detail':
-                require 'user/views/detail.php';
+            require 'user/views/detail.php';
             break;
         default:
             require 'user/views/404.php';

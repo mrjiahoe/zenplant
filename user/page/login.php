@@ -106,7 +106,7 @@ if ($stmt = $conn->prepare('SELECT userId, password, userType FROM users WHERE u
                 <label><i class="fas fa-user"></i> Username</label>
                 <input type="text" class="form-control" name="username" placeholder="Username" required>
                 <label><i class="fas fa-lock"></i> Password</label>
-                <input type="text" class="form-control" name="password" placeholder="Password" required>
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
                 
                 <!-- <button type="type" class="btn btn-success mt-2" name="login">Login</button> -->
                 <input type="submit" value="Login">

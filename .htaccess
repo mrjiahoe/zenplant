@@ -6,8 +6,10 @@ RewriteBase /zenplant
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
  
-RewriteRule ^.*$ ./index.php [L]
+# RewriteRule ^.*$ ./index.php [L]
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 
-RewriteRule ^detail$ detail.php [L]
-RewriteRule ^detail/([^/]+)$ detail.php?id=$1 [L]
-RewriteRule ^detail/([^/]+)/([^/]+)/id/([^/]+)$ detail.php?name=$1&id=$3 [L]
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+
+# Rule for dynamic user page (with id)
+RewriteRule ^user/test/([0-9]+)$ user/page/test.php?id=$1 [L,QSA]

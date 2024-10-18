@@ -1,9 +1,9 @@
-<?php 
+<?php
 // require_once './db.php';
 // session_start();
 ?>
 <style>
-    <?php include '/user/assets/css/styles.css'?>
+    <?php include '/user/assets/css/styles.css' ?>
 </style>
 
 <body>
@@ -16,25 +16,26 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <?php //foreach ($nav_menu as $name => $path): ?>
-                        <li class="nav__item">
-                        <a href="home" class="nav__link active">Home</a>
+                    <li class="nav__item">
+                        <a href="/zenplant/home" class="nav__link active">Home</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="about" class="nav__link">About Us</a>
+                        <a href="/zenplant/about" class="nav__link">About Us</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="products" class="nav__link">Products</a>
+                        <a href="/zenplant/products" class="nav__link">Products</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="test" class="nav__link">Featured</a>
+                        <a href="/zenplant/test" class="nav__link">Featured</a>
                     </li>
+
                     <li class="nav__item">
-                        <a href="contact" class="nav__link">Contact</a>
+                        <a href="/zenplant/contact" class="nav__link">Contact</a>
                     </li>
+
 
                 </ul>
 
@@ -101,11 +102,13 @@
                     You forgot your password
                 </a>
 
-                    <a href="login">
-                        <h2>Login</h2>
-                    </a>
+                <a href="login">
+                    <h2>Login</h2>
+                </a>
 
-                <a href="logout"><h2>logout</h2></a>
+                <a href="logout">
+                    <h2>logout</h2>
+                </a>
             </div>
         </form>
 

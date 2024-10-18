@@ -6,20 +6,20 @@ error_reporting(E_ALL);
 require 'db.php';
 
 	
-$result = null;
-	if (isset($_REQUEST['id'])) {
-		$plantId = $_GET['id']; // Ensure it's an integer
-		$sql = "SELECT * FROM plant WHERE id = $plantId"; // Fetch product by ID
-		$result = mysqli_query($conn, $sql);
+// $result = null;
+// 	if (isset($_REQUEST['id'])) {
+// 		$plantId = $_GET['id']; // Ensure it's an integer
+// 		$sql = "SELECT * FROM plant WHERE id = $plantId"; // Fetch product by ID
+// 		$result = mysqli_query($conn, $sql);
 
-		// Check if the query was successful
-		if ($result) {
-			$title = mysqli_fetch_assoc($result);
-		} else {
-			// Handle error here, e.g., display an error message
-			echo "Error fetching plant data: " . mysqli_error($conn);
-		}
-	}
+// 		// Check if the query was successful
+// 		if ($result) {
+// 			$title = mysqli_fetch_assoc($result);
+// 		} else {
+// 			// Handle error here, e.g., display an error message
+// 			echo "Error fetching plant data: " . mysqli_error($conn);
+// 		}
+// 	}
 
 ?>
 
@@ -44,9 +44,9 @@ $result = null;
 	<?php require dirname(__DIR__).'/components/header.php'; 
 	require 'db.php';
 
-	if (isset($_GET['id'])) {
-		$plantId = $_GET['id']; // Ensure it's an integer
-		$sql = "SELECT * FROM plant WHERE id = $plantId"; // Fetch product by ID
+	if (isset($id)) {
+		// $plantId = $_GET['id']; // Ensure it's an integer
+		$sql = "SELECT * FROM plants WHERE plantId = $id"; // Fetch product by ID
 		$result = mysqli_query($conn, $sql);
 	}
 	?>
@@ -61,7 +61,7 @@ $result = null;
 					if ($result && mysqli_num_rows($result) > 0) {
 						$row = mysqli_fetch_assoc($result);
 				
-					echo "<img src='".$row["image"]."' alt='".$row["name"]."'>";
+					echo "<img src='".$row["imageUrl"]."' alt='".$row["name"]."'>";
 					}
 				echo "</div>";
 				
@@ -138,8 +138,8 @@ $result = null;
 	</div>
 
 	<?php
-		$currentId = $plantId;
-		$currentSql = "select category from plant where id =".$currentId;
+		$currentId = $id;
+		$currentSql = "select category from plants where plantId = $currentId";
 		$currentResult=mysqli_query($conn, $currentSql);
 		
 		if (!$currentResult || mysqli_num_rows($currentResult) === 0) {
@@ -149,7 +149,7 @@ $result = null;
 		$currentProduct = mysqli_fetch_assoc($currentResult);
 		$currentCategory = $currentProduct['category'];
 	
-		$sql = "SELECT * FROM plant WHERE category = '" . mysqli_real_escape_string($conn, $currentCategory) . "' AND id != " . $currentId . " LIMIT 3";
+		$sql = "SELECT * FROM plants WHERE category = '" . mysqli_real_escape_string($conn, $currentCategory) . "' AND plantId != " . $currentId . " LIMIT 3";
 		$result = mysqli_query($conn, $sql);
 
 		
@@ -163,8 +163,9 @@ $result = null;
 			
 			echo "<div class='similar-product'>";
 		while($similar = mysqli_fetch_assoc($result)){
-			echo "<div class='similar-product-content'><a href='detail.php?name=" . $similar["name"] . "&id=" . $similar["id"] . "' class='nav__link'>";
-			echo "<img src='".$similar["image"]."' alt='".$similar["name"]."'>";
+			// echo "<div class='similar-product-content'><a href='detail.php?name=" . $similar["name"] . "&id=" . $similar["plantId"] . "' class='nav__link'>";
+			echo "<div class='similar-product-content'><a href='./" . $similar["plantId"] . "' class='nav__link'>";
+			echo "<img src='".$similar["imageUrl"]."' alt='".$similar["name"]."'>";
 			echo "<h3>".$similar["name"]."</h3>";
 			echo "<h5><strong>".$similar["category"]."</strong></h5>";
 			echo "<h6>".$similar["price"]."</h6>";

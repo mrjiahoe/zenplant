@@ -99,7 +99,8 @@
 		if ($products && mysqli_num_rows($products) > 0) {
             foreach ($products as $product) {
                 echo "<div class='product' data-name='" . $product["category"] . "'>";
-                echo "<a href='detail.php?id=" . $product["plantId"] . "' class='nav__link'>";
+                // echo "<a href='detail.php?id=" . $product["plantId"] . "' class='nav__link'>";
+                echo "<a href='detail/" . $product["plantId"] . "' class='nav__link'>";
                 echo "<div><img src='" . $product["imageUrl"] . "' alt='" . $product["name"] . "'>";
                 echo "<p>" . $product["name"] . "</p>";
                 echo "<p>BND " . $product["price"] . "</p>";
